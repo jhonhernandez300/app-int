@@ -1,0 +1,47 @@
+<br><br>   
+random works
+<div *ngIf="items">    
+    <table class="table ">        
+        <tbody>
+            <tr *ngFor="let item of items">               
+                
+                <td>
+                    <ul>
+                        <li>
+                            <img src=".\assets\youtube.png" height="130px" width="130px">
+                        </li>
+                        <li>
+                            <ul>
+                                <li><img src=".\assets\youtube.png" height="30px" width="30px"></li>
+                                <li>{{ item.artist }}</li>
+                                <li>{{ item.songName }}</li>
+                                <li>{{ item.artist }} - {{ item.songlikes }} - {{ item.songRegistryDate }}</li>
+                            </ul>
+                        </li>            
+                    </ul>
+                </td>
+                
+            </tr>
+            <tr *ngFor="let item of items">               
+                
+                <td>
+                    <ul>
+                        <li>
+                            <img src=".\assets\youtube.png" height="130px" width="130px">
+                        </li>
+                        <li>
+                            <ul>
+                                <li><img src=".\assets\youtube.png" height="30px" width="30px"></li>
+                                <li>{{ item.artist }}</li>
+                                <li>{{ item.songName }}</li>
+                                <li>{{ item.artist }} - {{ item.songlikes }} - {{ item.songRegistryDate }}</li>
+                            </ul>
+                        </li>            
+                    </ul>
+                </td>
+                
+            </tr>
+        </tbody>
+    </table>
+    <br><br>       
+</div>
