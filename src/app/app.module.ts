@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,6 +10,8 @@ import { PlayerSuggestionsCommentsComponent } from './player-suggestions-comment
 import { RandomComponent } from './random/random.component';
 import { ThePlayerComponent } from './the-player/the-player.component';
 import { TheSearchComponent } from './the-search/the-search.component';
+import { SuggestionsComponent } from './suggestions/suggestions.component';
+import { PairsPipe } from './utils/PairsPipe';
 
 @NgModule({
   declarations: [
@@ -17,12 +20,16 @@ import { TheSearchComponent } from './the-search/the-search.component';
     PlayerSuggestionsCommentsComponent,
     RandomComponent,
     ThePlayerComponent,
-    TheSearchComponent
+    TheSearchComponent,
+    SuggestionsComponent,
+    PairsPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

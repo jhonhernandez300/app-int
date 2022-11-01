@@ -10,8 +10,5 @@ export class SongServiceService {
 
   constructor(private http: HttpClient) { }
 
-  Get6RandomSongs(): Promise<any> {
-    return this.http.get<any>('https://localhost:7110/api/artist/Get6RandomSongs')
-    .toPromise();
-  }
+
 }

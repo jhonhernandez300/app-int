@@ -15,15 +15,16 @@
                 <div class="search">
                   <i class="fa fa-search"></i>
 
-                  <form #myForm="ngForm" (submit)="submitForm(myForm)">
-                    <input type="text" class="form-control" placeholder="Have a question? Ask Now">
-                    <button class="btn btn-primary" type="submit">
-                      <a [routerLink]="['/the-search', item.id]">
-                        Search
-                      </a>
+                  <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+                    <input type="text" formControlName="video" 
+                    (keypress)="onKeypressEvent($event)"                     
+                    class="form-control" placeholder="Search">
+                    
+                    <button class="btn btn-primary" type="button">
+                      <a [routerLink]="['/the-search', message]">Search</a>
                     </button>
-                  </form>
-
+                  </form>  
+                                
                 </div>
                 
               </div>
@@ -37,6 +38,11 @@
     </div>
 </div>
 <br>
+
 <a routerLink="random" routerLinkActive="active">Random</a><br>
-<a routerLink="component-suggestions-comments" routerLinkActive="active">component-suggestions-comments</a>
+<a routerLink="component-suggestions-comments" routerLinkActive="active">component-suggestions-comments</a><br>
+<a routerLink="suggestions" routerLinkActive="active">suggestions</a><br>
+<a routerLink="the-player" routerLinkActive="active">player</a>
 <br><br>
+
+<!-- (keyup.enter)="sendit($event)" -->
