@@ -12,8 +12,18 @@
                     <div class="d-flex flex-column">
                         <div class="p-2 "><img [src]="item.songImageRoute" height="30px" width="30px"></div>
                         <div class="p-2 ">{{ item.artist.artistName }}</div>
-                        <div class="p-2 ">{{ item.songName }}</div>
-                        <div class="p-2 ">{{ item.artist.artistName }} - {{ item.songlikes }} - {{ item.songRegistryDate }}</div>
+                        
+                        <div class="p-2 ">
+                            <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+                                <button class="btn " type="button">
+                                    <a [routerLink]="['/the-player', item.songName]">
+                                        {{ item.songName }}
+                                    </a>
+                                </button>
+                            </form>
+                        </div>
+
+                            <div class="p-2 ">{{ item.artist.artistName }} - {{ item.songlikes }} - {{ item.songRegistryDate }}</div>
                       </div>    
                   </div>
                 </td>

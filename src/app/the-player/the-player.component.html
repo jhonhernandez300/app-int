@@ -1,27 +1,58 @@
-<div class="abs-center">
-    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
-        <div class="form-group">
+<div *ngIf="items">    
+  <table class="table ">        
+      <tbody>
+          <tr *ngFor="let item of items">               
+              <td>                
+                <youtube-player   
+                  [videoId]=item.songName 
+                  suggestedQuality="highres"
+                  [height]="250" 
+                  [width]="500" 
+                  [startSeconds]="4"
+                  [endSeconds]="8">
+                </youtube-player>
+              </td>
+          </tr>     
+          
+          <tr *ngFor="let item of items">
+              <td>
+                <div class="abs-center">
+                  <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+                      <div class="form-group">
+              
+                          <button type="button" (click)="onLike()" class="btn btn-primary">
+                              Likes
+                          </button>
+                          <label>{{ item.songLikes }}</label>            
+                          
+                          <button type="button" (click)="onDislike()"
+                            class="btn btn-warning float-right">
+                              Dislikes
+                          </button>
+                          <label>{{ item.songdislikes }}</label>
+              
+                      </div>
+              
+                      <div class="form-group">
+                          <label>Comentario</label>
+                          <input
+                            type="text"
+                            formControlName="comentario"
+                            class="form-control"              
+                          /> 
+                      </div>
+                      <div class="form-group">
+                        <input type="submit" value="Guardar"
+                            class="btn btn-warning float-right">                            
+                      </div>
+                  </form>
+              </div>
+              </td>
+          </tr>
 
-            <button type="button" (click)="onLike()" class="btn btn-primary">
-                Likes
-            </button>
-            <label>{{ likes }}</label>            
-            
-            <button type="button" (click)="onDislike()"
-              class="btn btn-warning float-right">
-                Dislikes
-            </button>
-            <label>{{ dislikes }}</label>
+      </tbody>
+    </table>
+</div>  
+<br><br>
 
-        </div>
-
-        <div class="form-group">
-            <label>Comentario</label>
-            <input
-              type="number"
-              formControlName="comentario"
-              class="form-control"              
-            /> 
-        </div>
-    </form>
-</div>
+<!-- videoId="80_Cr9m-1fE"  -->

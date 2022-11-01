@@ -10,5 +10,14 @@ export class SongServiceService {
 
   constructor(private http: HttpClient) { }
 
+  GetSong(song: string): Promise<any> {
+    return this.http.get<any>('https://localhost:7110/api/song/GetSong' + "/" + song)
+    .toPromise();
+  }
 
+  UpdateLikes(song: any): Promise<any> {
+    console.log("servicio SaveLikeDislike", song);
+    return this.http.post<any>('https://localhost:7110/api/song/UpdateLikes', song)
+    .toPromise();
+  }
 }

@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'random', component: RandomComponent }, 
   { path: 'component-suggestions-comments', component: PlayerSuggestionsCommentsComponent },  
   { path: 'suggestions', component: SuggestionsComponent },
-  { path: 'the-player', component: ThePlayerComponent },
+  { path: 'the-player/:id', component: ThePlayerComponent },
   { path: '', component: RandomComponent }, 
   { path: '**', component: RandomComponent } 
 ];
