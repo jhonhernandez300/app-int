@@ -30,7 +30,8 @@ export class RandomComponent implements OnInit {
     console.log('ingresando a ngOnInit');
     this.artistService.Get6RandomSongs().then((response: any) => {
       console.log('response', response);
-      this.items = response;      
+      this.items = response; 
+      console.log(this.items);     
     })
     .catch((error: any) => {
       console.error(': ', error);

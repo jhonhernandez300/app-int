@@ -3,7 +3,7 @@ import { NgForm } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -15,7 +15,7 @@ export class MenuComponent implements OnInit {
   submitted = false;    
   message: string = '';
     
-  constructor(private formBuilder: FormBuilder) { }  
+  constructor(private formBuilder: FormBuilder, private router: Router) { }  
 
   iniciarFormulario(){
     this.myForm = this.formBuilder.group({              

@@ -1,5 +1,5 @@
 <br><br>   
-
+<!-- 
 <div *ngIf="items">    
     <table class="table ">        
         <tbody>
@@ -23,7 +23,7 @@
                             </form>
                         </div>
 
-                            <div class="p-2 ">{{ item.artist.artistName }} - {{ item.songlikes }} - {{ item.songRegistryDate }}</div>
+                            <div class="p-2 ">{{ item.artist.artistName }} - {{ item.songlikes }} - {{ item.songRegistryDate  }}</div>
                       </div>    
                   </div>
                 </td>
@@ -32,5 +32,20 @@
     </table>
     <br><br>       
 </div>
-<br><br>
+<br><br> -->
+
+<div class="row">
+    <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xs-12" *ngFor="let item of items">
+        <img [src]="item.songImageRoute" height="130px" width="130px" class="p-2">
+        <br>
+        <img [src]="item.songImageRoute" height="30px" width="30px" class="p-2">
+        
+        <a [routerLink]="['/the-player', item.songName]">
+            {{ item.songName }}
+        </a>
+        <br>
+     {{ item.artist.artistName }} <br> {{ item.songName }} <!-- display product data -->
+    </div>
+    
+   </div>
 

@@ -5,5 +5,6 @@ export interface iSong {
     SongLikes: number,
     SongRegistryDate: Date,
     SongImageRoute: string,
+    SongYoutubeUrl: string,
     ArtistId: number
 }

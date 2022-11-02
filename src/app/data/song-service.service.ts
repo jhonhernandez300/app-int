@@ -11,6 +11,7 @@ export class SongServiceService {
   constructor(private http: HttpClient) { }
 
   GetSong(song: string): Promise<any> {
+    console.log(song);
     return this.http.get<any>('https://localhost:7110/api/song/GetSong' + "/" + song)
     .toPromise();
   }

@@ -20,8 +20,11 @@
                     (keypress)="onKeypressEvent($event)"                     
                     class="form-control" placeholder="Search">
                     
-                    <button class="btn btn-primary" type="button">
-                      <a [routerLink]="['/the-search', message]">Search</a>
+                    <!-- <button id="boton"[routerLink]="['/the-search', message]">
+                      <img src="../../assets/search.png" width="15px">
+                    </button> -->
+                    <button id="boton" [routerLink]="['/the-search', message]">
+                      <img src="../../assets/search.png" width="15px">
                     </button>
                   </form>  
                                 

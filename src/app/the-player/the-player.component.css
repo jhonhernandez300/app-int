@@ -1,0 +1,17 @@
+#comentario{
+    width: 30em;
+}
+
+#like{
+    width: 40px;
+    height: 40px;
+    border: none;
+    color: white;
+}
+
+#dislike{
+    width: 40px;
+    height: 40px;
+    border: none;
+    color: white;
+}

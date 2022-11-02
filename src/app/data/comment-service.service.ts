@@ -15,4 +15,10 @@ export class CommentServiceService {
     .toPromise();
   }
 
+  GetComments(songId:string ): Promise<any> {
+    console.log(songId);
+    return this.http.get<any>('https://localhost:7110/api/comment/GetComments' + "/" + 1)
+    .toPromise();
+  }
+
 }

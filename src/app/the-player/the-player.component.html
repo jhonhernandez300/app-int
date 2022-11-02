@@ -1,10 +1,13 @@
+<div style="float:left; auto;">
 <div *ngIf="items">    
   <table class="table ">        
       <tbody>
           <tr *ngFor="let item of items">               
-              <td>                
+              <td >  <!-- 
+                <iframe width="500" height="250" src="https://www.youtube.com/embed/EqWRaAF6_WY">
+                </iframe> -->              
                 <youtube-player   
-                  [videoId]=item.songName 
+                  [videoId]=item.songYoutubeRoute
                   suggestedQuality="highres"
                   [height]="250" 
                   [width]="500" 
@@ -20,14 +23,14 @@
                   <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
                       <div class="form-group">
               
-                          <button type="button" (click)="onLike()" class="btn btn-primary">
-                              Likes
+                          <button id="like" type="button" (click)="onLike()">
+                              <img src="../../assets/like.png" width="20px">
                           </button>
                           <label>{{ item.songLikes }}</label>            
                           
                           <button type="button" (click)="onDislike()"
-                            class="btn btn-warning float-right">
-                              Dislikes
+                          id="like">
+                              <img src="../../assets/dislike.png" width="20px">
                           </button>
                           <label>{{ item.songdislikes }}</label>
               
@@ -38,13 +41,26 @@
                           <input
                             type="text"
                             formControlName="comentario"
-                            class="form-control"              
+                            class="form-control" 
+                            id="comentario"             
                           /> 
                       </div>
                       <div class="form-group">
                         <input type="submit" value="Guardar"
-                            class="btn btn-warning float-right">                            
+                             class="btn btn-warning float-right">                            
                       </div>
+                      
+                      <tr *ngFor="let comment of comments">               
+                        <td>
+                        <div class="d-flex flex-row ">
+
+                            <div class="d-flex flex-column">
+                              <div class="p-2 ">{{ comment.commentContent }}</div>
+ </div>    
+                          </div>
+                        </td>
+                    </tr>       
+
                   </form>
               </div>
               </td>
@@ -52,7 +68,10 @@
 
       </tbody>
     </table>
-</div>  
-<br><br>
+</div> 
+</div> 
+<div style="float: right; width: auto;" >
+<app-suggestions></app-suggestions>
+</div>
 
 <!-- videoId="80_Cr9m-1fE"  -->

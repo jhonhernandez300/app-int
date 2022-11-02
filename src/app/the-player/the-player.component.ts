@@ -21,6 +21,8 @@ export class ThePlayerComponent implements OnInit {
   dislikes: number = 0;
   url: string = "";
   items!: any[];
+  comments! : any[];
+  
 
   song: iSong = {
     SongId: 0,
@@ -29,6 +31,7 @@ export class ThePlayerComponent implements OnInit {
     SongLikes: 0,
     SongRegistryDate: new Date(),
     SongImageRoute: '',
+    SongYoutubeUrl: '',
     ArtistId: 0
   };
 
@@ -52,20 +55,32 @@ export class ThePlayerComponent implements OnInit {
 }
 
 ngOnInit(): void {
-  this.id = this.route.snapshot.params['id'];
+   this.id = this.route.snapshot.params['id'];
   this.iniciarFormulario();
   const tag = document.createElement('script');
   tag.src = "https://www.youtube.com/iframe_api";
-  document.body.appendChild(tag);
+  document.body.appendChild(tag); 
 
   console.log('Buscando el song: ', this.id);
     this.songService.GetSong(this.id).then((response: any) => {
       console.log('response', response);
-      this.items = response;      
+      this.items = response;    
+      console.log('Buscando los comentarios de la cancion: ', this.items[0].songId);
+    this.commentService.GetComments(this.items[0].SongId).then((response: any) => {
+      console.log('response', response);
+      this.comments = response; 
+      console.log(this.comments);     
+    })
+    .catch((error: any) => {
+      console.error(': ', error);
+    })   
     })
     .catch((error: any) => {
       console.error(': ', error);
     })     
+
+    
+  
 
 }
 
@@ -96,9 +111,10 @@ onSubmit(): void {
 
 onLike(): void {
   this.submitted = false;
-  this.items[0].SongLikes = this.items[0].SongLikes + 1;
+  //this.items[0].songLikes = this.items[0].songLikes + 1;
+  //console.log('prueba like',this.items[0].songLikes);
   console.log('Ingresando otro like: ', this.items[0]);
-  this.songService.UpdateLikes(this.items[0]).then((response: any) => {
+  this.songService.UpdateLikes(this.items[0].songId).then((response: any) => {
     console.log('response like', response);
     this.items = response;        
   })

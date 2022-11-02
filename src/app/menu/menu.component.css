@@ -10,8 +10,9 @@
        }
        .search input{
         height: 40px;
-        text-indent: 25px;
-        border: 2px solid #d6d4d4;
+        text-indent: 2px;
+       
+        border: 2px solid black;
        }
        .search input:focus{
         box-shadow: none;
@@ -30,6 +31,17 @@
         width: 70px;
         background: gray;
        }
-       .btn{
-        background:#d6d4d4;
+
+       .search ::placeholder{
+              color:black;
+       }
+       #boton{
+        background:white;
+        border-color: black;
+        
+        border-radius: 5px;
+        width: auto;
+        padding-right: 4px;
+        padding-left: 4px;
+        width: 40px;
        }
